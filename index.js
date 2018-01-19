@@ -16,9 +16,9 @@ var user_times = new Array();
 var mysql = require('mysql');
 var con = mysql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "",
-    database: "snigre"
+    user: "soonerwj_pms",
+    password: "{2QlUwGlVoQz",
+    database: "soonerwj_pms"
 });
 
 
