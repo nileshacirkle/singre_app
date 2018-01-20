@@ -8,7 +8,7 @@ var dateTime = require('node-datetime');
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3000;
 var users = new Array();
 var user_tabs = new Array();
 var user_times = new Array();
@@ -16,9 +16,9 @@ var user_times = new Array();
 var mysql = require('mysql');
 var con = mysql.createConnection({
     host: "localhost",
-    user: "soonerwj_pms",
-    password: "{2QlUwGlVoQz",
-    database: "soonerwj_singre"
+    user: "root",
+    password: "",
+    database: "snigre"
 });
 
 
