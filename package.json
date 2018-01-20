@@ -1,28 +1,24 @@
 {
   "name": "snigre_app",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is the source code for a very simple chat example used for\r the [Getting Started](http://socket.io/get-started/chat/) guide\r of the Socket.IO website.",
   "main": "index.js",
+  "dependencies": {
+    "console.table": "^0.9.1",
+    "nodemon": "^1.13.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "serve": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nileshacirkle/singre_app.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/nileshacirkle/singre_app/issues"
   },
-  "homepage": "https://github.com/nileshacirkle/singre_app#readme",
-  "dependencies": {
-    "console.table": "^0.10.0",
-    "express": "^4.16.2",
-    "mysql": "^2.15.0",
-    "node-datetime": "^2.0.3",
-    "socket.io": "^2.0.4",
-    "table": "^4.0.2"
-  }
+  "homepage": "https://github.com/nileshacirkle/singre_app#readme"
 }
