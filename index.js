@@ -200,10 +200,10 @@ io.on('connection', function (socket) {
         console.table(msg_data);
         //SEND MESSAGE TO ROOM NAMED RECEIVER QUERY STRING WHEN CONNECTION SOOCKET IO AT CLIENT SIDE
 
-        console.log('normal chat');
+       // console.log('normal chat');
         var to = 'user'+msg_data.ticket_send_id;
         console.log(to+ 'tooooooooo');
-        io.to(to).emit('task_send_data', msg_data);
+        io.to(to).emit('ticket_send_event', msg_data);
     });
 
 
