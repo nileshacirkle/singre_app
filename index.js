@@ -184,7 +184,7 @@ io.on('connection', function (socket) {
 
         console.log('normal chat');
         var to = 'user'+msg_data.team_leader_id;
-        var hr = 'user'+msg_data.team_leader_id;;
+        var hr = 'user'+msg_data.hr_id;;
         var admin = 'user'+msg_data.admin_id;
         var user_id = 'user'+msg_data.user_id;
         //console.log(to+ 'tooooooooo');
