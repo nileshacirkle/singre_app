@@ -195,6 +195,22 @@ io.on('connection', function (socket) {
     });
 
 
+    socket.on('ticket_send_event', function (msg_data) {
+
+        console.table(msg_data);
+        //SEND MESSAGE TO ROOM NAMED RECEIVER QUERY STRING WHEN CONNECTION SOOCKET IO AT CLIENT SIDE
+
+        console.log('normal chat');
+        var to = 'user'+msg_data.ticket_send_id;
+        console.log(to+ 'tooooooooo');
+        io.to(to).emit('task_send_data', msg_data);
+    });
+
+
+
+
+
+
 
 
 
