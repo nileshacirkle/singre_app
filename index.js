@@ -198,7 +198,7 @@ io.on('connection', function (socket) {
     socket.on('ticket_send_event', function (msg_data) {
 
         console.table(msg_data);
-        
+
         for (var i = 0; i < msg_data.length; i++) {
             var to = 'user'+msg_data[i].ticket_send_id;
             console.log(to+ 'tooooooooo');
