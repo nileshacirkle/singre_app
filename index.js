@@ -198,13 +198,12 @@ io.on('connection', function (socket) {
     socket.on('ticket_send_event', function (msg_data) {
 
         console.table(msg_data);
-
-        $.each(msg_data, function (index, value) {
-            var to = 'user'+this.ticket_send_id;
+        
+        for (var i = 0; i < msg_data.length; i++) {
+            var to = 'user'+msg_data[i].ticket_send_id;
             console.log(to+ 'tooooooooo');
-            io.to(to).emit('ticket_send_event', this.index);
-        });
-
+            io.to(to).emit('ticket_send_event', msg_data[i]);
+        }
 
         //SEND MESSAGE TO ROOM NAMED RECEIVER QUERY STRING WHEN CONNECTION SOOCKET IO AT CLIENT SIDE
 
