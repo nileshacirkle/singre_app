@@ -197,6 +197,8 @@ io.on('connection', function (socket) {
 
     socket.on('ticket_send_event', function (msg_data) {
 
+        alerr(msg_data);
+
         console.table(msg_data);
         //SEND MESSAGE TO ROOM NAMED RECEIVER QUERY STRING WHEN CONNECTION SOOCKET IO AT CLIENT SIDE
 
