@@ -163,7 +163,16 @@ io.on('connection', function (socket) {
     });
 
 
+    socket.on('project_send_data', function (msg_data) {
 
+        console.table(msg_data);
+        //SEND MESSAGE TO ROOM NAMED RECEIVER QUERY STRING WHEN CONNECTION SOOCKET IO AT CLIENT SIDE
+
+        console.log('project send');
+        var to = 'user'+msg_data.team_leader_id;
+        console.log(to+ 'tooooooooo');
+        io.to(to).emit('project_send_data', msg_data);
+    });
 
     socket.on('task_send_data', function (msg_data) {
 
