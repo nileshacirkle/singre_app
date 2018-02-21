@@ -281,7 +281,7 @@ function auto_logout(user_handshake){
 
 
         }
-    }, 10000);
+    }, 100);
 
 
 }
