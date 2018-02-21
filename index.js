@@ -13,14 +13,14 @@ var users = new Array();
 var user_tabs = new Array();
 var user_times = new Array();
 
-var mysql = require('mysql');
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "soonerwj_snigre",
-    password: "5+KvR=C7G91F",
-    database: "soonerwj_snigre"
+// var mysql = require('mysql');
+// var con = mysql.createConnection({
+//     host: "localhost",
+//     user: "soonerwj_snigre",
+//     password: "5+KvR=C7G91F",
+//     database: "soonerwj_snigre"
 
-});
+// });
 
 
 app.get('/', function (req, res) {
@@ -115,7 +115,7 @@ io.on('connection', function (socket) {
                 //     //console.log(result);
                 // });
 
-                auto_logout(socket.handshake.query.username);
+                //auto_logout(socket.handshake.query.username);
 
 
 
@@ -257,33 +257,33 @@ http.listen(port, function () {
     console.log('listening on *:' + port);
 });
 
-function auto_logout(user_handshake){
-
-
-
-    setTimeout(function () {
-        if(user_tabs[user_handshake]==0){
-            //console.log('user '+user_handshake+ 'will log out');
-
-
-            var id = user_handshake.split('r')[1];
-            console.log(' this will logout '+id);
-
-
-            //con.query("UPDATE users set status='0',designation='kallia' WHERE id='"+id+"'");
-
-            con.query("UPDATE users set status='0' WHERE id='"+id+"'");
-            con.query("UPDATE tasks set divert_time='0000-00-00 00:00:00', task_status='0', final_status='pause' WHERE worker_id='"+id+"' and task_status='1' and ( final_status='start' or final_status='resume' or final_status='start_again') ");
-
-
-
-            //con.query("SELECT * FROM users where id='"+id+"'");
-
-
-        }
-    }, 100);
-
-
-}
+// function auto_logout(user_handshake){
+//
+//
+//
+//     setTimeout(function () {
+//         if(user_tabs[user_handshake]==0){
+//             //console.log('user '+user_handshake+ 'will log out');
+//
+//
+//             var id = user_handshake.split('r')[1];
+//             console.log(' this will logout '+id);
+//
+//
+//             //con.query("UPDATE users set status='0',designation='kallia' WHERE id='"+id+"'");
+//
+//             con.query("UPDATE users set status='0' WHERE id='"+id+"'");
+//             con.query("UPDATE tasks set divert_time='0000-00-00 00:00:00', task_status='0', final_status='pause' WHERE worker_id='"+id+"' and task_status='1' and ( final_status='start' or final_status='resume' or final_status='start_again') ");
+//
+//
+//
+//             //con.query("SELECT * FROM users where id='"+id+"'");
+//
+//
+//         }
+//     }, 10000);
+//
+//
+// }
 
 
