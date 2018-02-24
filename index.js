@@ -193,7 +193,7 @@ io.on('connection', function (socket) {
     });
 
 
-    socket.on('admin_send_event', function (msg_data) {
+    socket.on('admin_send_data', function (msg_data) {
 
         console.table(msg_data);
         //SEND MESSAGE TO ROOM NAMED RECEIVER QUERY STRING WHEN CONNECTION SOOCKET IO AT CLIENT SIDE
@@ -201,7 +201,7 @@ io.on('connection', function (socket) {
         console.log('admin send');
         var to = 'user'+msg_data.receiver_id;
         console.log(to+ 'tooooooooo');
-        io.to(to).emit('admin_send_event', msg_data);
+        io.to(to).emit('admin_send_data', msg_data);
     });
 
     socket.on('task_send_data', function (msg_data) {
