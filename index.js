@@ -163,6 +163,25 @@ io.on('connection', function (socket) {
         }
     });
 
+    socket.on('chat_send_message_event', function (msg_data) {
+
+        console.table(msg_data);
+        //SEND MESSAGE TO ROOM NAMED RECEIVER QUERY STRING WHEN CONNECTION SOOCKET IO AT CLIENT SIDE
+        io.to(msg_data.from).emit('chat_incoming_message', msg_data);
+
+        if(msg_data.groups==undefined){
+            console.log('normal chat');
+            io.to(msg_data.to).emit('chat_incoming_message',msg_data);
+        }else{
+            for(var i=0;i<msg_data.groups.length;i++){
+                io.to('user'+msg_data.groups[i]).emit('chat_incoming_message', msg_data);
+            }
+            console.log('project chat');
+            console.log(msg_data.groups);
+        }
+
+    });
+
 
     socket.on('project_send_data', function (msg_data) {
 
@@ -253,17 +272,7 @@ io.on('connection', function (socket) {
 
 
 
-
-
-
-
-
-
-
 });
-
-
-
 
 http.listen(port, function () {
     console.log('listening on *:' + port);
