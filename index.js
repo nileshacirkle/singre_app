@@ -180,6 +180,8 @@ io.on('connection', function (socket) {
             console.log(msg_data.groups);
         }
 
+
+
     });
 
 
@@ -266,6 +268,50 @@ io.on('connection', function (socket) {
         //SEND MESSAGE TO ROOM NAMED RECEIVER QUERY STRING WHEN CONNECTION SOOCKET IO AT CLIENT SIDE
 
        // console.log('normal chat');
+
+    });
+
+
+
+    socket.on('send_chat_view_typing', function (data) {
+
+        console.log(data.from);
+        //SEND MESSAGE TO ROOM NAMED RECEIVER QUERY STRING WHEN CONNECTION SOOCKET IO AT CLIENT SIDE
+        var to = 'user'+data.from;
+
+        io.to(to).emit('incoming_chat_view_typing',data);
+
+    });
+
+    socket.on('send_chat_view_project_typing', function (data) {
+        for (var i = 0; i < data.to.length; i++) {
+            var to = 'user'+data.to[i].id;
+            //console.log(to+ 'tooooooooo');
+            io.to(to).emit('incoming_chat_view_project_typing', data);
+        }
+
+    });
+
+
+
+
+    socket.on('send_chat_view_typing',function (sender_id) {
+
+        console.log(sender_id);
+        //SEND MESSAGE TO ROOM NAMED RECEIVER QUERY STRING WHEN CONNECTION SOOCKET IO AT CLIENT SIDE
+        // var to = 'user'+sender_id;
+        //  io.to(to).emit('incoming_chat_view_typing', sender_id);
+
+        // if(msg_data.groups==undefined){
+        //     console.log('normal chat');
+        //     io.to(msg_data.to).emit('chat_incoming_message',msg_data);
+        // }else{
+        //     for(var i=0;i<msg_data.groups.length;i++){
+        //         io.to('user'+msg_data.groups[i]).emit('chat_incoming_message', msg_data);
+        //     }
+        //     console.log('project chat');
+        //     console.log(msg_data.groups);
+        // }
 
     });
 
